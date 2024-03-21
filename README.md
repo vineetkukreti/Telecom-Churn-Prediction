@@ -66,7 +66,13 @@ The exploratory data analysis provided valuable insights into the dataset, helpi
 
 
 ## Feature Engineering <a name="feature-engineering"></a>
-Feature engineering involves transforming raw data into a format suitable for machine learning models. Techniques such as feature scaling, transformation, creation of new features, and handling imbalanced data are applied to preprocess the data. The goal is to enhance the predictive power of the model and improve its ability to accurately identify churned customers.
+1.	Feature Scaling: Standardization was performed using the StandardScaler from scikit-learn. This technique scales numerical features to have a mean of 0 and a standard deviation of 1. It helps in bringing all features to a similar scale, which is important for algorithms that are sensitive to feature scaling, such as logistic regression.
+2.	Transformation: Log transformation was applied to skewed numerical features. Skewed features have a non-normal distribution, which can adversely affect the performance of certain models. Log transformation helps to make the distribution of these features more symmetrical, which can improve model performance.
+3.	Creation of New Features: Interaction terms were created by combining relevant pairs of features. Interaction terms capture the combined effect of two or more features on the target variable and can provide additional predictive power to the model. Additionally, derived features were generated from existing ones to extract more meaningful information. These derived features may include ratios, differences, or aggregates of existing features.
+4.	Handling Imbalanced Data: The dataset likely had class imbalance, where the number of instances of one class (e.g., churned customers) was significantly lower than the other class (e.g., non-churned customers). To address this imbalance, oversampling using SMOTE (Synthetic Minority Over-sampling Technique) was performed. SMOTE generates synthetic samples of the minority class by interpolating between existing minority class samples in the feature space. This helps to balance the class distribution and prevent the model from being biased towards the majority class.
+
+By implementing these feature engineering techniques, the goal was to preprocess the data in a way that enhances the predictive power of the model and improves its ability to accurately identify churned customers.
+
 
 ## Model Building <a name="model-building"></a>
 Several machine learning models are built for churn prediction, including logistic regression, PCA with logistic regression, LASSO with decision tree and random forest, decision tree classifier, and random forest classifier. Each model's performance is evaluated using metrics such as accuracy, precision, recall, and F1-score.
