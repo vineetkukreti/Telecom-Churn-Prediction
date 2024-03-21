@@ -23,18 +23,19 @@ This project focuses on predicting customer churn for a telecommunications compa
 ## Data Preparation <a name="data-preparation"></a>
 The dataset used for churn prediction contains information about telecom customers, including various features that might influence their likelihood of churning.
 Features and Target Variable:
-•	Features: The dataset includes a range of features such as call usage, recharge patterns, customer demographics, and account information.
-•	Target Variable: The target variable is typically binary, indicating whether a customer has churned or not.
+- Features: The dataset includes a range of features such as call usage, recharge patterns, customer demographics, and account information.
+-	Target Variable: The target variable is typically binary, indicating whether a customer has churned or not.
 Data Cleaning Steps:
-•	Handling Missing Values: Missing values in the dataset were addressed through techniques such as imputation (using mean, median, or mode), deletion of rows or columns with missing values, or advanced imputation methods like K-nearest neighbors (KNN).
-•	Outlier Detection and Treatment: Outliers, if present, were identified and treated using methods such as trimming, winsorization, or removing extreme values.
-•	Data Scaling: Numerical features might have been scaled using techniques like standardization or normalization to ensure that they are on the same scale.
+-	Handling Missing Values: Missing values in the dataset were addressed through techniques such as imputation (using mean, median, or mode), deletion of rows or columns with missing values, or advanced imputation methods like K-nearest neighbors (KNN).
+-	Outlier Detection and Treatment: Outliers, if present, were identified and treated using methods such as trimming, winsorization, or removing extreme values.
+-	Data Scaling: Numerical features might have been scaled using techniques like standardization or normalization to ensure that they are on the same scale.
 Handling Categorical Variables:
-•	Encoding Categorical Variables: Categorical variables were encoded into numerical format using techniques like one-hot encoding or label encoding. This ensures that categorical variables can be used as input features in machine learning models.
-•	Handling Ordinal Variables: If categorical variables had an ordinal nature, they might have been encoded with integer values preserving their order.
+-	Encoding Categorical Variables: Categorical variables were encoded into numerical format using techniques like one-hot encoding or label encoding. This ensures that categorical variables can be used as input features in machine learning models.
+-	Handling Ordinal Variables: If categorical variables had an ordinal nature, they might have been encoded with integer values preserving their order.
 Data Imbalance:
-•	Addressing Class Imbalance: Class imbalance between churned and non-churned customers was handled using techniques such as oversampling (e.g., SMOTE) or undersampling to balance the distribution of the target variable in the dataset.
+-	Addressing Class Imbalance: Class imbalance between churned and non-churned customers was handled using techniques such as oversampling (e.g., SMOTE) or undersampling to balance the distribution of the target variable in the dataset.
 
+<br>
 The data preparation process involved cleaning, preprocessing, and transforming the dataset to make it suitable for building machine learning models. This included handling missing values, encoding categorical variables, addressing class imbalance, and ensuring that the dataset is ready for modeling purposes.
 
 
