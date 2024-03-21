@@ -2,6 +2,9 @@
 
 This repository contains code for performing churn prediction analysis on telecom customer data. The analysis includes exploratory data analysis (EDA), feature reduction using various techniques like Recursive Feature Elimination (RFE), Principal Component Analysis (PCA), and Least Absolute Shrinkage and Selection Operator (LASSO). Additionally, it includes training machine learning models such as Logistic Regression, Decision Tree, and Random Forest for churn prediction.
 
+![Telecom churn image](telecom.png)
+
+
 ## Overview
 
 The analysis is divided into the following sections:
