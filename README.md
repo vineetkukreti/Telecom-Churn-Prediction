@@ -66,28 +66,54 @@ The exploratory data analysis provided valuable insights into the dataset, helpi
 
 
 ## Feature Engineering <a name="feature-engineering"></a>
-1.	Feature Scaling: Standardization was performed using the StandardScaler from scikit-learn. This technique scales numerical features to have a mean of 0 and a standard deviation of 1. It helps in bringing all features to a similar scale, which is important for algorithms that are sensitive to feature scaling, such as logistic regression.
-2.	Transformation: Log transformation was applied to skewed numerical features. Skewed features have a non-normal distribution, which can adversely affect the performance of certain models. Log transformation helps to make the distribution of these features more symmetrical, which can improve model performance.
-3.	Creation of New Features: Interaction terms were created by combining relevant pairs of features. Interaction terms capture the combined effect of two or more features on the target variable and can provide additional predictive power to the model. Additionally, derived features were generated from existing ones to extract more meaningful information. These derived features may include ratios, differences, or aggregates of existing features.
-4.	Handling Imbalanced Data: The dataset likely had class imbalance, where the number of instances of one class (e.g., churned customers) was significantly lower than the other class (e.g., non-churned customers). To address this imbalance, oversampling using SMOTE (Synthetic Minority Over-sampling Technique) was performed. SMOTE generates synthetic samples of the minority class by interpolating between existing minority class samples in the feature space. This helps to balance the class distribution and prevent the model from being biased towards the majority class.
+- Feature Scaling: Standardization was performed using the StandardScaler from scikit-learn. This technique scales numerical features to have a mean of 0 and a standard deviation of 1. It helps in bringing all features to a similar scale, which is important for algorithms that are sensitive to feature scaling, such as logistic regression.
+- Transformation: Log transformation was applied to skewed numerical features. Skewed features have a non-normal distribution, which can adversely affect the performance of certain models. Log transformation helps to make the distribution of these features more symmetrical, which can improve model performance.
+- Creation of New Features: Interaction terms were created by combining relevant pairs of features. Interaction terms capture the combined effect of two or more features on the target variable and can provide additional predictive power to the model. Additionally, derived features were generated from existing ones to extract more meaningful information. These derived features may include ratios, differences, or aggregates of existing features.
+- Handling Imbalanced Data: The dataset likely had class imbalance, where the number of instances of one class (e.g., churned customers) was significantly lower than the other class (e.g., non-churned customers). To address this imbalance, oversampling using SMOTE (Synthetic Minority Over-sampling Technique) was performed. SMOTE generates synthetic samples of the minority class by interpolating between existing minority class samples in the feature space. This helps to balance the class distribution and prevent the model from being biased towards the majority class.
 
 By implementing these feature engineering techniques, the goal was to preprocess the data in a way that enhances the predictive power of the model and improves its ability to accurately identify churned customers.
 
 
 ## Model Building <a name="model-building"></a>
-Several machine learning models are built for churn prediction, including logistic regression, PCA with logistic regression, LASSO with decision tree and random forest, decision tree classifier, and random forest classifier. Each model's performance is evaluated using metrics such as accuracy, precision, recall, and F1-score.
+several machine learning models were built for churn prediction. Here's an overview of the model building process:
+- Logistic Regression Model: Logistic regression is a commonly used algorithm for binary classification tasks. In this code, a logistic regression model was trained using the features obtained after feature engineering. The model was then evaluated on the test dataset to assess its performance in predicting churn.
+- Principal Component Analysis (PCA) with Logistic Regression: PCA is a dimensionality reduction technique that projects high-dimensional data onto a lower-dimensional subspace while preserving the maximum amount of variance. In the code, PCA was applied to reduce the dimensionality of the feature space. A logistic regression model was then trained on the reduced feature space obtained from PCA.
+- LASSO with Decision Tree and Random Forest: LASSO (Least Absolute Shrinkage and Selection Operator) is a feature selection technique that penalizes the absolute size of the coefficients, resulting in some coefficients being exactly zero. In the code, LASSO was used to select important features, which were then used to train decision tree and random forest models.
+- Decision Tree Classifier: Decision trees are non-parametric supervised learning models used for classification tasks. In the code, a decision tree classifier was trained using the selected features obtained from LASSO. The model was evaluated on the test dataset to assess its performance.
+- Random Forest Classifier: Random forests are an ensemble learning method that constructs multiple decision trees during training and outputs the mode of the classes for classification tasks. In the code, a random forest classifier was trained using the selected features obtained from LASSO. Similar to the decision tree model, the random forest model was evaluated on the test dataset.
+
+Each model's performance was evaluated using metrics such as accuracy, precision, recall, and F1-score. Additionally, confusion matrices were generated to visualize the model's performance in predicting churn and non-churn instances. By building and evaluating multiple models, the goal was to identify the most effective approach for predicting customer churn in the given dataset.
+
 
 ### Train-Test Splitting <a name="train-test-splitting"></a>
 The dataset is split into training and testing sets using the train_test_split function from the sklearn.model_selection module. A split ratio of 70% training data and 30% testing data is chosen to ensure robust evaluation of the model's performance.
 
+
 ### Feature Selection Techniques <a name="feature-selection-techniques"></a>
-Feature selection techniques such as recursive feature elimination (RFE), principal component analysis (PCA), and LASSO are employed to reduce the dimensionality of the feature space and improve model performance.
+1.	Recursive Feature Elimination (RFE):
+- Method: RFE is a technique that recursively removes less important features from the dataset based on their importance ranking obtained from an external estimator, such as logistic regression.
+- Implementation: Logistic regression was used as the estimator, and RFE was applied to select the top features based on their importance scores.
+- Result: The selected features were then used to train a logistic regression model for churn prediction.
+2.	Principal Component Analysis (PCA):
+- Method: PCA is a dimensionality reduction technique that transforms the original features into a new set of orthogonal variables (principal components) while retaining most of the variance in the data.
+- Implementation: PCA was applied to the training data to identify the principal components that capture the maximum variance in the dataset.
+- Result: The transformed principal components were used as features to train a logistic regression model or other classifiers.
+3.	LASSO (Least Absolute Shrinkage and Selection Operator):
+- Method: LASSO is a regularization technique that imposes a penalty on the absolute size of the coefficients, forcing some of them to shrink to zero. This results in sparse feature sets with only the most important features retained.
+- Implementation: Linear Support Vector Classification (LinearSVC) with L1 regularization was used to fit the data and select important features.
+- Result: Features with non-zero coefficients obtained from LASSO were considered important for predicting churn and were used for subsequent model training.
+
+These feature selection techniques aim to reduce the dimensionality of the feature space, mitigate the curse of dimensionality, and improve model performance by focusing on the most informative features while discarding redundant or less relevant ones.
+
 
 ### Model Evaluation <a name="model-evaluation"></a>
 Various evaluation metrics, including accuracy, precision, recall, F1-score, confusion matrix, ROC curve, and AUC score, are used to assess the performance of each model. Insights gained from model evaluation guide the selection of the best-performing model for churn prediction.
 
 ## Conclusion <a name="conclusion"></a>
-The Random Forest model with LASSO feature selection demonstrates superior performance in predicting customer churn, highlighting the importance of feature engineering and selection in improving model performance. Further research could explore additional data sources and refine feature engineering techniques to build more robust churn prediction models.
+- The Random Forest model with LASSO feature selection demonstrated superior performance in predicting customer churn, with an accuracy of around 94% and F1-score of 0.53 for churn class and 0.97 for non-churn class.
+- The results highlight the importance of feature engineering and selection in improving model performance and guiding business strategies for customer retention.
+- Further research could explore additional data sources, refine feature engineering techniques, and evaluate alternative algorithms to build more robust churn prediction models.
+
 
 ## Future Work <a name="future-work"></a>
 Future work could focus on exploring additional data sources, refining feature engineering techniques, and evaluating alternative algorithms to further improve churn prediction accuracy.
