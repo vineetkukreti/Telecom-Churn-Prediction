@@ -51,3 +51,117 @@ So Lasso with Random Forest shows much better result and this model is most acce
 
 ** PCA without "Balanceing data set by oversampling" was done but that shows  results:
 accuracy 82.3%, f1 score 0.22(churn), 0.97(non-churn). Using selected 50 variables (90% explained variance) we got accuracy 61%, f1 score 0.15(churn), 0.74(non-churn) . This result is more poor and that  portion of programme is not shown in this notebook.
+
+
+
+
+
+# Churn Prediction Project
+
+## Overview
+This project aims to predict customer churn for a telecommunications company using machine learning techniques. Churn prediction is crucial for businesses to identify customers who are likely to leave, allowing proactive measures to retain them. In this project, we explore various feature selection methods and classification models to build an accurate churn prediction model.
+
+## Table of Contents
+1. Introduction
+2. Data Preparation
+3. Exploratory Data Analysis (EDA)
+4. Feature Engineering
+5. Model Building
+    - Train-Test Splitting
+    - Feature Selection Techniques
+        - Recursive Feature Elimination (RFE)
+        - Principal Component Analysis (PCA)
+        - LASSO (Least Absolute Shrinkage and Selection Operator)
+    - Model Evaluation
+6. Conclusion
+7. Future Work
+8. References
+
+## Introduction
+Start with an overview of the project, its objectives, and why churn prediction is important for the telecommunications industry. Discuss the significance of the project in terms of business impact and potential benefits.
+
+## Data Preparation
+The dataset used for churn prediction contains information about telecom customers, including various features that might influence their likelihood of churning.
+
+### Features and Target Variable:
+- Features: The dataset includes a range of features such as call usage, recharge patterns, customer demographics, and account information.
+- Target Variable: The target variable is typically binary, indicating whether a customer has churned or not.
+
+### Data Cleaning Steps:
+- Handling Missing Values: 
+    - Missing values in the dataset were addressed through techniques such as imputation (using mean, median, or mode), deletion of rows or columns with missing values, or advanced imputation methods like K-nearest neighbors (KNN).
+- Outlier Detection and Treatment: 
+    - Outliers, if present, were identified and treated using methods such as trimming, winsorization, or removing extreme values.
+- Data Scaling: 
+    - Numerical features might have been scaled using techniques like standardization or normalization to ensure that they are on the same scale.
+
+### Handling Categorical Variables:
+- Encoding Categorical Variables: 
+    - Categorical variables were encoded into numerical format using techniques like one-hot encoding or label encoding.
+- Handling Ordinal Variables: 
+    - If categorical variables had an ordinal nature, they might have been encoded with integer values preserving their order.
+
+### Data Imbalance:
+- Addressing Class Imbalance: 
+    - Class imbalance between churned and non-churned customers was handled using techniques such as oversampling (e.g., SMOTE) or undersampling to balance the distribution of the target variable in the dataset.
+
+The data preparation process involved cleaning, preprocessing, and transforming the dataset to make it suitable for building machine learning models. This included handling missing values, encoding categorical variables, addressing class imbalance, and ensuring that the dataset is ready for modeling purposes.
+
+## Exploratory Data Analysis (EDA)
+Data Distribution:
+- Univariate Analysis: Histograms, box plots, and density plots were used to visualize the distribution of individual features in the dataset.
+- Target Variable Distribution: The distribution of the target variable (churned or not churned) was examined to understand the class imbalance.
+
+Correlation Analysis:
+- Correlation Heatmap: A correlation heatmap was generated to visualize the pairwise correlations between numerical features.
+- Pairplot: A pairplot was used to visualize scatterplots of numerical features against each other and histograms of each feature's distribution.
+
+Feature Importance:
+- Feature Importance Plot: Techniques like random forest or gradient boosting were used to calculate feature importance scores.
+
+Patterns Observed:
+- Churn Patterns Over Time
+- Segmentation Analysis
+- Usage Patterns
+
+Insights Gained:
+- Identification of important features influencing churn behavior.
+- Understanding of correlations between features and potential multicollinearity issues.
+- Recognition of patterns and trends in churn behavior over time and across different customer segments.
+- Insights into customer behavior and preferences based on usage patterns.
+
+## Feature Engineering
+- Feature Scaling
+- Transformation
+- Creation of New Features
+- Handling Imbalanced Data
+
+## Model Building
+Several machine learning models were built for churn prediction.
+
+### 1. Logistic Regression Model
+### 2. Principal Component Analysis (PCA) with Logistic Regression
+### 3. LASSO with Decision Tree and Random Forest
+### 4. Decision Tree Classifier
+### 5. Random Forest Classifier
+
+## Train-Test Splitting
+The dataset was split into training and testing sets using the train_test_split function from the sklearn.model_selection module.
+
+## Feature Selection Techniques
+### 1. Recursive Feature Elimination (RFE)
+### 2. Principal Component Analysis (PCA)
+### 3. LASSO (Least Absolute Shrinkage and Selection Operator)
+
+## Model Evaluation
+Various evaluation metrics were used to assess the performance of each model.
+
+### Conclusion
+- The Random Forest model with LASSO feature selection demonstrated superior performance in predicting customer churn.
+- The results highlight the importance of feature engineering and selection in improving model performance and guiding business strategies for customer retention.
+
+### Future Work
+- Further research could explore additional data sources, refine feature engineering techniques, and evaluate alternative algorithms to build more robust churn prediction models.
+
+### References
+Include citations to relevant papers, articles, or documentation referenced during the project.
