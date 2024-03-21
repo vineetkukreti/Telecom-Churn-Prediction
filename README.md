@@ -38,7 +38,16 @@ The analysis is divided into the following sections:
 
 ## Conclusion
 
-Based on the analysis, LASSO with Random Forest emerges as the most effective model for telecom churn prediction. It offers a high accuracy rate and balanced performance in predicting churn and non-churn instances.
+Above we worked with RFE, PCA and LASSO and got following results:
+1.	Using RFE we got accuracy around 81%, f1 score 0.32 ( churn ) and 0.89( non-churn ).
+2.	 Using all PCA variables, accuracy was seen 82.3%, f1 score 0.34(churn), 0.90(non-churn). Usingh selected 50 variables (90% explained variance) we got almost same accuracy and f1 score. 
+3.	LASSO with 
 
-For more details, refer to the Jupyter Notebook containing the code and analysis.
+     a.	DECISSION TREE:  we got accuracy around 86%, f1 score 0.38(churn) and 0.92(non-churn)
 
+     b.	 RANDOM FOREST:  accuracy around 94%, f1 score 0.53(churn) and 0.97(non-churn) were found.
+
+So Lasso with Random Forest shows much better result and this model is most acceptable among above mentioned trials.
+
+** PCA without "Balanceing data set by oversampling" was done but that shows  results:
+accuracy 82.3%, f1 score 0.22(churn), 0.97(non-churn). Using selected 50 variables (90% explained variance) we got accuracy 61%, f1 score 0.15(churn), 0.74(non-churn) . This result is more poor and that  portion of programme is not shown in this notebook.
