@@ -41,7 +41,29 @@ The data preparation process involved cleaning, preprocessing, and transforming 
 
 
 ## Exploratory Data Analysis (EDA) <a name="exploratory-data-analysis-eda"></a>
-Exploratory Data Analysis (EDA) involves analyzing the distribution of features, correlation between variables, and patterns in churn behavior. Techniques such as univariate analysis, target variable distribution analysis, and correlation analysis are employed to gain insights into the dataset. EDA helps in understanding the underlying structure of the data and identifying key factors influencing churn behavior.
+**Data Distribution:**
+-	Univariate Analysis: Histograms, box plots, and density plots were used to visualize the distribution of individual features in the dataset. This helped understand the range, central tendency, and spread of each feature.
+-	Target Variable Distribution: The distribution of the target variable (churned or not churned) was examined to understand the class imbalance, which is crucial for building predictive models.
+Correlation Analysis:
+-	Correlation Heatmap: A correlation heatmap was generated to visualize the pairwise correlations between numerical features. This helped identify highly correlated features, which might indicate redundancy or multicollinearity.
+-	Pairplot: A pairplot was used to visualize scatterplots of numerical features against each other and histograms of each feature's distribution. This provided insights into the relationship between different features.
+**Feature Importance:**
+-	Feature Importance Plot: Techniques like random forest or gradient boosting were used to calculate feature importance scores. A plot displaying these scores helped identify the most influential features for predicting churn.
+**Patterns Observed:**
+-	Churn Patterns Over Time: Time-series analysis or trend plots were used to analyze churn patterns over different time periods, such as months or quarters. This helped identify seasonal trends or changes in churn behavior over time.
+-	Segmentation Analysis: Customers were segmented based on demographic or behavioral characteristics, and churn rates were compared across segments. This helped identify high-risk customer segments and tailor retention strategies accordingly.
+-	Usage Patterns: Analysis of usage patterns, such as call duration, data usage, recharge frequency, etc., revealed insights into customer behavior and preferences. Differences in usage patterns between churned and non-churned customers were explored to understand factors influencing churn.
+
+**Insights Gained**:
+-	Identification of important features influencing churn behavior.
+-	Understanding of correlations between features and potential multicollinearity issues.
+-	Recognition of patterns and trends in churn behavior over time and across different customer segments.
+-	Insights into customer behavior and preferences based on usage patterns.
+
+The exploratory data analysis provided valuable insights into the dataset, helping understand the distribution of features, correlations between variables, and patterns in churn behavior. These insights informed subsequent steps in the data preprocessing and modeling phases, guiding feature selection, model selection, and the development of churn prediction strategies.
+
+
+
 
 ## Feature Engineering <a name="feature-engineering"></a>
 Feature engineering involves transforming raw data into a format suitable for machine learning models. Techniques such as feature scaling, transformation, creation of new features, and handling imbalanced data are applied to preprocess the data. The goal is to enhance the predictive power of the model and improve its ability to accurately identify churned customers.
