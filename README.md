@@ -108,6 +108,11 @@ These feature selection techniques aim to reduce the dimensionality of the featu
 
 ### Model Evaluation <a name="model-evaluation"></a>
 Various evaluation metrics, including accuracy, precision, recall, F1-score, confusion matrix, ROC curve, and AUC score, are used to assess the performance of each model. Insights gained from model evaluation guide the selection of the best-performing model for churn prediction.
+| Model           | Accuracy | Precision (Churn) | Precision (Non-Churn) | Recall (Churn) | Recall (Non-Churn) | F1 Score (Churn) | F1 Score (Non-Churn) |
+|-----------------|----------|--------------------|-----------------------|----------------|-------------------|-------------------|----------------------|
+| Decision Tree   | 0.86     | 0.25               | 0.98                  | 0.74           | 0.87              | 0.38              | 0.92                 |
+| Random Forest   | 0.95     | 0.51               | 0.97                  | 0.53           | 0.97              | 0.53              | 0.97                 |
+
 
 ## Conclusion <a name="conclusion"></a>
 - The Random Forest model with LASSO feature selection demonstrated superior performance in predicting customer churn, with an accuracy of around 94% and F1-score of 0.53 for churn class and 0.97 for non-churn class.
@@ -120,4 +125,6 @@ Future work could focus on exploring additional data sources, refining feature e
 
 ## References <a name="references"></a>
 Include citations to relevant papers, articles, or documentation referenced during the project.
+
+
 
